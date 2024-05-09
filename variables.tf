@@ -8,7 +8,7 @@ variable "env" {
 }
 variable "ami_id" {
     type = string
-    default = "ami-060f2cb962e997969"
+    default = "ami-0e4fd655fb4e26c30"
 }
 variable "instance_type" {
     type = string 
@@ -20,7 +20,7 @@ variable "a_zone" {
 }
 variable "security_group" {
     type = string 
-    default = "aws_security_group.manoj.id"
+    default = "aws_security_group.sg.id"
 }
 variable "val_size" {
     type = number

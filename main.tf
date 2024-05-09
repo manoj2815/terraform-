@@ -7,7 +7,7 @@ resource "aws_instance" "mi" {
     ami = var.ami_id
     instance_type = var.instance_type
     availability_zone = var.a_zone
-    vpc_security_group_ids = [var.security_group]
+    vpc_security_group_ids = "aws_security_group.sg.id"
     root_block_device {
         volume_size = var.val_size
     }
@@ -50,7 +50,7 @@ resource "aws_subnet" "sub1" {
     }
     vpc_id = aws_vpc.vp.id
     availability_zone = "ap-south-1a"
-    cidr_block = "10.1.0.0/24"
+    cidr_block = "10.0.2.0/24"
     map_public_ip_on_launch = "true"
 }
 resource "aws_subnet" "sub2" {
@@ -59,7 +59,7 @@ resource "aws_subnet" "sub2" {
     }
     vpc_id = aws_vpc.vp.id
     availability_zone = "ap-south-1b"
-    cidr_block = "10.2.0.0/24"
+    cidr_block = "10.0.1.0/24"
     map_public_ip_on_launch = "true"
 }
 
