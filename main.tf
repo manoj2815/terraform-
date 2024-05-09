@@ -7,7 +7,7 @@ resource "aws_instance" "mi" {
     ami = var.ami_id
     instance_type = var.instance_type
     availability_zone = var.a_zone
-    vpc_security_group_ids = "aws_security_group.sg.id"
+    vpc_security_group_ids = [aws_security_group.sg.id]
     root_block_device {
         volume_size = var.val_size
     }
