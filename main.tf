@@ -15,7 +15,7 @@ resource "aws_instance" "mi" {
 
  resource "aws_s3_bucket" "bucket" {
     bucket = var.bucket_name
-
+    provider = aws.south
  }
  resource "aws_s3_bucket_ownership_controls" "oc" {
     bucket = aws_s3_bucket.bucket.id
@@ -35,6 +35,7 @@ resource "aws_instance" "mi" {
     }
  }
 resource "aws_vpc" "vp" {
+    provider = aws.south
     tags = {
         Name = "south-vpc1"
     }
